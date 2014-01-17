@@ -51,5 +51,23 @@ function parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
-export PS2="\[$ORANGE\]→ \[$RESET\]"
+# original prompt
+#export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+#export PS2="\[$ORANGE\]→ \[$RESET\]"
+
+# my prompt                                                  
+PS1='\n\[\033[0;36m\]\u\[\033[0m\]@\h:\[\033[0;33m\]\w\[\033[0m\] \n\[\033[0;36m\]=>\[\033[    0m\] '
+                                                                            
+# set where virutal environments will live                                      
+export WORKON_HOME=$HOME/.virtualenvs                                           
+# ensure all new environments are isolated from the site-packages directory     
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'                   
+# use the same directory for virtualenvs as virtualenvwrapper                   
+export PIP_VIRTUALENV_BASE=$WORKON_HOME                                         
+# makes pip detect an active virtualenv and install to it                       
+export PIP_RESPECT_VIRTUALENV=true                                              
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then                           
+	source /usr/local/bin/virtualenvwrapper.sh                                  
+else                                                                            
+	echo "WARNING: Can't find virtualenvwrapper.sh"                             
+fi  
