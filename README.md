@@ -21,6 +21,19 @@ Alternatively, to update while avoiding the confirmation prompt:
 ```bash
 set -- -f; source bootstrap.sh
 ```
+### Git fetch
+Assigns the original repository to a remote called "upstream"
+```git remote add upstream https://github.com/mathiasbynens/dotfiles.git```
+Pulls in changes not present in your local repository, without modifying your files
+```git fetch upstream```
+Pushes commits to your remote repository stored on GitHub
+```git push origin master```
+
+Merges any changes fetched into your working files
+```git merge upstream/master```
+
+Pulls commits from 'upstream' and stores them in the local repository
+```git pull upstream master```
 
 ### Git-free install
 
