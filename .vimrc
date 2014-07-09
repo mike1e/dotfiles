@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """"""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""
@@ -33,6 +34,7 @@ set wildignore=*.o,*~,*.pyc
 set ruler
 set columns=95
 set colorcolumn=80
+
 set number
  
 " Height of the command bar
