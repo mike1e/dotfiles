@@ -60,5 +60,11 @@ install zopfli
 
 install homebrew/versions/lua52
 
+# Programming languages
+install python
+install ruby
+install node
+install git
+
 # Remove outdated versions from the cellar
 cleanup

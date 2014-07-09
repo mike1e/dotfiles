@@ -11,3 +11,11 @@ if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
 else                                                                            
 	echo "WARNING: Can't find virtualenvwrapper.sh"                             
 fi  
+
+# git credentials
+GIT_AUTHOR_NAME="Michael Le"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+GIT_AUTHOR_EMAIL="mike.le07@gmail.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
