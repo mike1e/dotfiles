@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """"""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""
@@ -24,6 +25,18 @@ set so=7
 set mouse=a
  
 " Turn on wild menu
+=======
+" Use the Solarized Dark theme
+set background=dark
+colorscheme solarized
+let g:solarized_termtrans=1
+
+" Make Vim more useful
+set nocompatible
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+" Enhance command-line completion
+>>>>>>> upstream/master
 set wildmenu
  
 " Ignore compiled files
@@ -71,6 +84,7 @@ set mat=2
  
 " No annoying sound on errors
 set noerrorbells
+<<<<<<< HEAD
 set novisualbell
 set t_vb=
 set tm=500
@@ -124,3 +138,36 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
+
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+" Don’t show the intro message when starting Vim
+set shortmess=atI
+" Show the current mode
+set showmode
+" Show the filename in the window titlebar
+set title
+" Show the (partial) command as it’s being typed
+set showcmd
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Treat .md files as Markdown
+	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+endif
