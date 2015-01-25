@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 """"""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""
@@ -25,7 +24,8 @@ set so=7
 set mouse=a
  
 " Turn on wild menu
-=======
+set wildmenu
+
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
@@ -33,11 +33,9 @@ let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
-" Enhance command-line completion
->>>>>>> upstream/master
-set wildmenu
  
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -84,7 +82,6 @@ set mat=2
  
 " No annoying sound on errors
 set noerrorbells
-<<<<<<< HEAD
 set novisualbell
 set t_vb=
 set tm=500
