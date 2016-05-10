@@ -101,13 +101,9 @@ brew install tree
 #brew install zopfli
 
 # Programming languages
-install python
-install ruby
-install node
-install git
-
-# Remove outdated versions from the cellar
-cleanup
+brew install python
+brew install ruby
+brew install node
 
 # Remove outdated versions from the cellar.
 brew cleanup
