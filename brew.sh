@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# DO NOT RUN this
+# To uninstall all brew packages 
+brew remove --force $(brew list)
 
 # Install command-line tools using Homebrew.
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
