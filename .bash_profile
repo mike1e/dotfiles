@@ -1,10 +1,10 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+#export PATH="$HOME/bin:$PATH";
 
 # Add Android SDK to $PATH
-export ANDROID_SDK_HOME="~/Library/android/sdk/"
-export ANDROID_SDK_ROOT=$ANDROID_SDK_HOME
-export PATH="$PATH:$ANDROID_SDK_HOME"
+#export ANDROID_SDK_HOME="~/Library/android/sdk/"
+#export ANDROID_SDK_ROOT=$ANDROID_SDK_HOME
+#export PATH="$PATH:$ANDROID_SDK_HOME"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
