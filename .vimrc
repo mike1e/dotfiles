@@ -1,31 +1,3 @@
-""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""
-" Set to auto read when file is changed from outside
-set autoread
- 
-" Sets how many lines of history VIM has to remember
-set history=700
- 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
- 
-" Fast saving
-nmap <leader>w :w!<cr>
- 
-"""""""""""""""""""""""""
-" => VIM user interface
-"""""""""""""""""""""""""
-" Set 10 lines to cursor 
-set so=7
- 
-" Enable mouse
-set mouse=a
- 
-" Turn on wild menu
-set wildmenu
-
 " Use the Solarized Dark theme
 set background=dark
 colorscheme solarized
@@ -33,111 +5,68 @@ let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
-
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
- 
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
- 
-" Always show current position
-set ruler
-set columns=95
-set colorcolumn=80
+" Enhance command-line completion
+set wildmenu
+" Allow cursor keys in insert mode
+set esckeys
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+" Optimize for fast terminal connections
+set ttyfast
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+" Change mapleader
+let mapleader=","
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
 
+" Don’t create backups when editing files in certain directories
+set backupskip=/tmp/*,/private/tmp/*
+
+" Respect modeline in files
+set modeline
+set modelines=4
+" Enable per-directory .vimrc files and disable unsafe commands in them
+set exrc
+set secure
+" Enable line numbers
 set number
- 
-" Height of the command bar
-set cmdheight=2
- 
-" A buffer becomes hidden when it is abandoned
-set hid
- 
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
- 
-" Ignore case when searching
-set ignorecase
- 
-" When searching try to be smart about cases 
-set smartcase
- 
-" Highlight search results
+" Enable syntax highlighting
+syntax on
+" Highlight current line
+set cursorline
+" Make tabs as wide as two spaces
+set tabstop=2
+" Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+" Highlight searches
 set hlsearch
- 
-" Makes search act like search in modern browsers
+" Ignore case of searches
+set ignorecase
+" Highlight dynamically as pattern is typed
 set incsearch
- 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw
- 
-" For regular expressions turn magic on
-set magic
- 
-" Show matching brackets when text indicator is over them
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
- 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
- 
-"""""""""""""""""""""""""
-" => Syntax
-"""""""""""""""""""""""""
-filetype on
-syntax enable
-autocmd BufRead,BufNewFile *.py let python_highlight_all=1
-let g:html5_event_handler_attributes_complete = 1 
- 
-""""""""""""""""""""""""""""
-" => Text, tab, and indent related
-""""""""""""""""""""""""""""
-" use spaces instead of tabs
-set expandtab
- 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
- 
-" indenting
-set autoindent
-set copyindent
- 
-" Auto indent
-set ai
- 
-" Smart indent
-set si
- 
-" Wrap lines
-set wrap
- 
-""""""""""""""""""""""""""""""
-" => Status line
-"""""""""""""""""""""""""""""
-" Always show the status line
+" Always show status line
 set laststatus=2
- 
-"""""""""""""""""""""""""""""
-" => Moving around
-"""""""""""""""""""""""""""""
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
- 
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
+" Enable mouse in all modes
+set mouse=a
+" Disable error bells
+set noerrorbells
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
+" Show the cursor position
+set ruler
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 " Show the current mode
@@ -146,6 +75,13 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" Use relative line numbers
+if exists("&relativenumber")
+	set relativenumber
+	au BufReadPost * set relativenumber
+endif
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
